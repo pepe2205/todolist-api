@@ -21,7 +21,7 @@ Uma API RESTful de lista de tarefas desenvolvida com Node.js e Express, incluind
 
 1. Clone este repositório:
 ```bash
-git clone [URL_DO_SEU_REPOSITÓRIO]
+git clone (https://github.com/pepe2205/todolist-api)
 ```
 
 2. Instale as dependências:
