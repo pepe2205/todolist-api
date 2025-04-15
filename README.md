@@ -1,13 +1,16 @@
 # Lista de Tarefas (ToDo List)
 
-Um aplicativo simples de lista de tarefas desenvolvido com Node.js e Express.
+Uma API RESTful de lista de tarefas desenvolvida com Node.js e Express, incluindo autenticação de usuários.
 
 ## 🚀 Funcionalidades
 
+- Autenticação de usuários (registro e login)
 - Adicionar novas tarefas
-- Listar todas as tarefas
+- Listar todas as tarefas do usuário
+- Atualizar tarefas existentes
 - Marcar tarefas como concluídas
 - Remover tarefas
+- Proteção de rotas com JWT
 
 ## 📋 Pré-requisitos
 
@@ -26,6 +29,11 @@ git clone [URL_DO_SEU_REPOSITÓRIO]
 npm install
 ```
 
+3. Configure as variáveis de ambiente:
+   - Crie um arquivo `.env` na raiz do projeto
+   - Copie o conteúdo do arquivo `.env.example` (se existir)
+   - Configure as variáveis conforme necessário
+
 ## 🎮 Como Usar
 
 Para iniciar o servidor em modo de desenvolvimento:
@@ -38,17 +46,45 @@ Para iniciar o servidor em modo de produção:
 npm start
 ```
 
+## 📡 Endpoints da API
+
+### Autenticação
+- `POST /api/users/register` - Registrar novo usuário
+- `POST /api/users/login` - Fazer login
+
+### Tarefas
+- `GET /api/tasks` - Listar todas as tarefas do usuário
+- `POST /api/tasks` - Criar nova tarefa
+- `PUT /api/tasks/:id` - Atualizar tarefa
+- `DELETE /api/tasks/:id` - Deletar tarefa
+
 ## 🛠️ Tecnologias Utilizadas
 
 - Node.js
 - Express
-- UUID (para geração de IDs únicos)
+- JWT (JSON Web Tokens)
+- Bcrypt (criptografia de senhas)
+- UUID (geração de IDs únicos)
+- CORS (Cross-Origin Resource Sharing)
 - Nodemon (para desenvolvimento)
 
 ## 📝 Estrutura do Projeto
 
-- `index.js` - Arquivo principal da aplicação
-- `package.json` - Configurações e dependências do projeto
+```
+src/
+├── config/         # Configurações da aplicação
+├── controllers/    # Controladores da aplicação
+├── middlewares/    # Middlewares (autenticação, etc)
+└── routes/         # Rotas da API
+```
+
+## 🔒 Segurança
+
+- Autenticação baseada em JWT
+- Senhas criptografadas com bcrypt
+- Proteção de rotas com middleware de autenticação
+- Validação de dados de entrada
+- Tratamento de erros
 
 ## 📄 Licença
 
